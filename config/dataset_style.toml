@@ -1,0 +1,18 @@
+# ============================================================
+#  Krea 2 LoRA 训练 · 数据集配置（画风 / 风格）
+#  图片放 dataset/style/ 里，每张图配同名 .txt
+#  画风 LoRA 建议描述里只写"画面内容"，不要写风格词，
+#  让 LoRA 去吸收风格（或者统一用同一个触发词开头）
+# ============================================================
+
+[general]
+resolution = [1024, 1024]
+caption_extension = ".txt"
+batch_size = 1
+enable_bucket = true
+bucket_no_upscale = false
+
+[[datasets]]
+image_directory = "./dataset/style"
+cache_directory = "./dataset/.cache_style"
+num_repeats = 5                  # 画风数据集通常更大，重复次数少一些

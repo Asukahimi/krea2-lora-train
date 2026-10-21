@@ -1,0 +1,17 @@
+# ============================================================
+#  Krea 2 LoRA 训练 · 数据集配置（角色 / 人物）
+#  图片放 dataset/character/ 里，每张图配一个同名 .txt 写描述
+#  例：01.png + 01.txt
+# ============================================================
+
+[general]
+resolution = [1024, 1024]        # 训练分辨率；竖构图人物可改成 [832, 1216]
+caption_extension = ".txt"       # 描述文件后缀
+batch_size = 1                   # 32G 显存跑 1 稳妥；显存富裕可试 2
+enable_bucket = true             # 允许不同长宽比自动分桶
+bucket_no_upscale = false
+
+[[datasets]]
+image_directory = "./dataset/character"
+cache_directory = "./dataset/.cache_character"
+num_repeats = 10                 # 每张图重复 10 次/轮：20 张图 × 10 = 200 步/轮
